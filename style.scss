@@ -1,0 +1,46 @@
+@mixin ring($color, $taille) {
+    border-radius: 200px;
+    width: $taille;
+    border: 10px solid $color;
+    aspect-ratio: 1 / 1;
+}
+
+@mixin alignement() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: center;
+}
+
+.orange {
+    @include ring(orange, 80px);
+}
+
+.yellow {
+    @include ring(yellow, 150px);
+}
+
+@for $i from 1 through 6 {
+    .grey-#{$i} {
+        position: relative;
+        left: -30px*$i;
+        @include ring(grey, 20px*$i);
+    }
+}
+
+.titre {
+    @include alignement();
+}
+
+.ring {
+    @include alignement();
+}
+
+.grey {
+    @include alignement();
+}
+
+body {
+    text-align: center;
+    font-family: cursive;
+}
